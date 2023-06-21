@@ -3,7 +3,8 @@ import { Button } from './FeedbackBtn.styled';
 export const FeedbackBtn = ({ item, onLeaveFeedback }) => {
   return (
   
-      <Button onClick={() => onLeaveFeedback(item)}>{item}</Button>
+    
+    <Button type='button' aria-label={item} onClick={onLeaveFeedback}>{item}</Button>
     
   );
 };
