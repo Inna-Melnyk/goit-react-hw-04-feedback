@@ -10,17 +10,15 @@ export const StatisticsList = ({
   return (
     <List>
       {Object.keys(options).map(item => {
-        return <StatisticOption item={item} key={item} value={options[item]} />;
-      })}
+        return <StatisticOption item={item} key={item} value={options[item]} /> })}
       <li>
         <Text>
-          Total: <span>{totalFeedback(options)}</span>
+          Total: <span>{totalFeedback}</span>
         </Text>
       </li>
       <li>
         <Text>
-          Positive Feedback:{' '}
-          <span> {options.good ? PositivePercentage(options) : 0}</span>%
+          Positive Feedback: <span> {options.good ? PositivePercentage : 0} %</span>
         </Text>
       </li>
     </List>
@@ -29,6 +27,6 @@ export const StatisticsList = ({
 
 StatisticsList.propTypes = {
   options: PropTypes.shape({}).isRequired,
-  totalFeedback: PropTypes.func.isRequired,
-  PositivePercentage: PropTypes.func.isRequired,
+  totalFeedback: PropTypes.number.isRequired,
+  PositivePercentage: PropTypes.number.isRequired,
 };

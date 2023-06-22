@@ -16,25 +16,22 @@ export const App = () => {
 
     switch (ariaLabel) {
       case 'good':
-        setGood(prev => prev + 1);
+        setGood(prevGood => prevGood + 1);
         break;
       case 'neutral':
-        setNeutral(prev => prev + 1);
+        setNeutral(prevNeutral => prevNeutral + 1);
         break;
       case 'bad':
-        setBad(prev => prev + 1);
+        setBad(prevBad => prevBad + 1);
         break;
       default:
         return;
     }
   };
 
-  const countTotalFeedback = options => {
-    return Object.values(options).reduce((acc, item) => acc + item, 0);
-  };
-  const countPositiveFeedbackPercentage = options => {
-    return Math.round((options.good / countTotalFeedback(options)) * 100);
-  };
+  const countTotalFeedback = good + neutral + bad;
+  
+  const countPositiveFeedbackPercentage = Math.round((good / countTotalFeedback) * 100);
 
   return (
     <main>
